@@ -11,14 +11,6 @@ public class Fruit : MonoBehaviour
     // Stores a prefab for the sliced fruit
     public GameObject slicedFruitPrefab;
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            CreateSlicedFruit();
-        }
-    }
-
     /// <summary>
     /// Create a sliced fruit whenever a fruit is sliced.
     /// </summary>
@@ -51,5 +43,25 @@ public class Fruit : MonoBehaviour
 
         // Destroy fruit slices after 5 seconds
         Destroy(inst.gameObject, 5);
+    }
+
+    /// <summary>
+    /// When the blade cuts the fruit (When a collider enters the trigger),
+    /// cut the fruit
+    /// </summary>
+    /// <param name="collision"></param>    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        // Get the blade component of the collision (If the blade collided with the fruit)
+        Blade blade = collision.GetComponent<Blade>();
+
+        // If there's no blade
+        if(!blade)
+        {
+            // do nothing
+            return;
+        }
+
+        CreateSlicedFruit();
     }
 }
