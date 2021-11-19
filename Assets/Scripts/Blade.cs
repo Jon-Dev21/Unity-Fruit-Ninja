@@ -21,6 +21,9 @@ public class Blade : MonoBehaviour
         SetBladeToMouse();
     }
 
+    /// <summary>
+    /// Sets the blade position to the mouse's position.
+    /// </summary>
     private void SetBladeToMouse()
     {
         // Getting the mouse position.
