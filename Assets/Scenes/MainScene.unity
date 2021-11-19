@@ -459,7 +459,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb2025b3f4658ef4fb11561ac5045eb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fruitToSpawn: {fileID: 7366425674207641918, guid: 0108d91f6ad07b644a58574fbb879d55, type: 3}
+  objectsToSpawn:
+  - {fileID: 7446163612231702352, guid: fe394714811c4314a971534cfb17222d, type: 3}
+  - {fileID: 7366425674207641918, guid: 0108d91f6ad07b644a58574fbb879d55, type: 3}
+  - {fileID: 5115870999283139036, guid: 855fc7b90209f534996eb24f3f4f481d, type: 3}
+  - {fileID: 8157990267634975730, guid: 106339a57211038488277ac873267da4, type: 3}
   spawners:
   - {fileID: 1834320770}
   - {fileID: 1775096639}
