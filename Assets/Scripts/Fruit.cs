@@ -38,6 +38,9 @@ public class Fruit : MonoBehaviour
             
         }
 
+        // Add 1 to the score.
+        FindObjectOfType<GameManager>().IncreaseScore();
+
         // Destroy the unsliced fruit.
         Destroy(gameObject);
 
