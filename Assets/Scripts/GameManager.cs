@@ -46,8 +46,15 @@ public class GameManager : MonoBehaviour
             // Assign HighScore to highscore text in order to display it in the gui.
             highScoreText.text = "HighScore: " + PlayerPrefs.GetInt("HighScore").ToString();
         }
-        
+    }
 
-
+    /// <summary>
+    /// Method runs whenever the bomb is sliced. 
+    /// Stops the game when a bomb is hit.
+    /// </summary>
+    public void OnBombHit()
+    { 
+        Time.timeScale = 0;                 // This line of code stops the game.
+        Debug.Log("Boom");
     }
 }
