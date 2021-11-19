@@ -48,5 +48,8 @@ public class Fruit : MonoBehaviour
 
         // Destroy the unsliced fruit.
         Destroy(gameObject);
+
+        // Destroy fruit slices after 5 seconds
+        Destroy(inst.gameObject, 5);
     }
 }
