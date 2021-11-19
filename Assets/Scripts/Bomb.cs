@@ -24,6 +24,5 @@ public class Bomb : MonoBehaviour
 
         // Execute the OnBombHit method.
         FindObjectOfType<GameManager>().OnBombHit();
-
     }
 }
