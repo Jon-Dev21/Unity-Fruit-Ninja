@@ -55,6 +55,5 @@ public class GameManager : MonoBehaviour
     public void OnBombHit()
     { 
         Time.timeScale = 0;                 // This line of code stops the game.
-        Debug.Log("Boom");
     }
 }
