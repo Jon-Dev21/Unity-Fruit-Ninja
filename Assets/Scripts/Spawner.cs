@@ -8,7 +8,7 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     // Variable for the fruit to spawn.
-    public GameObject fruitToSpawn;
+    public GameObject[] objectsToSpawn;
 
     // List of our fruit spawners.
     public Transform[] spawners;
@@ -44,8 +44,13 @@ public class Spawner : MonoBehaviour
             // Assign the position of our fruit in a random position of the spawn places.
             Transform t = spawners[Random.Range(0, spawners.Length)];
 
+            // Creating a 10% probability for the bomb to spawn.
+            // Create a game object for the object to spawn.
+            // GameObject gameObj = null;
+
+
             // Creating the fruit object
-            GameObject fruit = Instantiate(fruitToSpawn, t.position, t.rotation);
+            GameObject fruit = Instantiate(objectsToSpawn[Random.Range(0,objectsToSpawn.Length)], t.position, t.rotation);
 
             // Apply force to make the fruits fly to the air
             // (Force comes from our spawners in order for the fruits to have a specific rotation)
