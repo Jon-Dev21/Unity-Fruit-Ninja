@@ -91,6 +91,7 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// Method runs whenever the bomb is sliced. 
     /// Stops the game when a bomb is hit.
+    /// Plays the game over sound and shows the GameOver panel
     /// </summary>
     public IEnumerator OnBombHit()
     {
