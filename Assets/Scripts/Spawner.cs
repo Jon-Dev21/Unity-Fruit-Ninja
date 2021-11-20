@@ -68,6 +68,9 @@ public class Spawner : MonoBehaviour
             // Creating the fruits or bomb object (Depending on which gameObj is chosen)
             GameObject fruit = Instantiate(gameObj, t.position, t.rotation);
 
+            // Play the fruit spawn sound
+            FindObjectOfType<GameManager>().PlayFruitSpawnSound();
+
             // Apply force to make the fruits fly to the air
             // (Force comes from our spawners in order for the fruits to have a specific rotation)
             fruit.GetComponent<Rigidbody2D>().AddForce(t.transform.up * Random.Range(minForce, maxForce), ForceMode2D.Impulse);
