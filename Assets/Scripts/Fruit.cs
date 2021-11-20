@@ -19,8 +19,10 @@ public class Fruit : MonoBehaviour
         // Create a sliced fruit
         GameObject inst = Instantiate(slicedFruitPrefab, transform.position, transform.rotation);
 
-        // Add a Rigid body that does an explotion.
+        // Playing the sliced fruit sound
+        FindObjectOfType<GameManager>().PlayRandomSliceSound();
 
+        // Add a Rigid body that does an explotion.
         // Using RigidBody Array in order to store the 2 sliced pieces of the fruit.
         Rigidbody[] SlicedRigidBodies = inst.transform.GetComponentsInChildren<Rigidbody>();
 
