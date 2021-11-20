@@ -83,15 +83,8 @@ public class Blade : MonoBehaviour
         // Else, return false
         // The distance would be our minimum velocity in this case.
         if (traveled > minVelocity)
-        {
-            Debug.Log("True");
             return true;
-        }   
         else
-        {
-            Debug.Log("False");
             return false;
-        }
-            
     }
 }
