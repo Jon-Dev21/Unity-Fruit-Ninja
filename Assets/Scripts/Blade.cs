@@ -34,6 +34,7 @@ public class Blade : MonoBehaviour
     // Update is called once per frame
     void Update()
     {    
+        // Setting the blade to the mouse position on each frame.
         SetBladeToMouse();
     }
 
@@ -77,8 +78,6 @@ public class Blade : MonoBehaviour
         // Set the last mouse position to the current mouse position
         lastMousePosition = currentMousePosition;
 
-        //Debug.Log("Traveled: " + traveled);
-        //Debug.Log("MinVelocity: " + minVelocity);
         // If the mouse has traveled enough distance, return true.
         // Else, return false
         // The distance would be our minimum velocity in this case.
