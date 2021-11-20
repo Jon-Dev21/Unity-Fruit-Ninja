@@ -28,13 +28,16 @@ public class Spawner : MonoBehaviour
     // Maximum force for the fruit to be spawned with
     public float maxForce = 17;
 
-
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(SpawnFruits());
     }
 
+    /// <summary>
+    /// This coroutine spawns the fruits and bombs.
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator SpawnFruits()
     {
         // As long as this Coroutine runs, spawn fruits
@@ -79,7 +82,4 @@ public class Spawner : MonoBehaviour
             Destroy(fruit, 5);
         }
     }
-
-
-    
 }
