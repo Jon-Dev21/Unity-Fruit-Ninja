@@ -13,3 +13,7 @@ at once to score combos.
 
 Fruits and Bombs will start jumping up on the screen.
 Try to slice as much fruit as you can while constantly avoiding hitting bombs.
+
+This fruit ninja clone contains most of the original sounds but it does not play like the original.
+Fruits can keep falling down and your only way to lose is if you slice a bomb.
+Avoid this at all costs, my fellow ninja / coder.
