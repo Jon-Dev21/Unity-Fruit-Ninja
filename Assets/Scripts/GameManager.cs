@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
+//using UnityEngine.SceneManagement;
 using UnityEngine.Advertisements;
 
 /// <summary>
@@ -21,13 +21,18 @@ public class GameManager : MonoBehaviour
     // Game highscore in text form. Used to show highscore in the GUI
     public Text highScoreText;
 
+    // ------------------------------------------------------------------------------
     // This header will appear in the Inspector
     [Header("Game Over")]
+
     // Game Over Panel
     public GameObject gameOverPanel;
+
     // Score text in the game over panel
     public Text gameOverScoreText;
 
+    // ------------------------------------------------------------------------------
+    [Header("Sounds")]
     // An array of audio clips for the slice sounds.
     public AudioClip[] sliceSounds;
     
@@ -39,6 +44,8 @@ public class GameManager : MonoBehaviour
 
     // Audio source used to play sounds internally.
     private AudioSource audioSource;
+
+    // ------------------------------------------------------------------------------
 
     /// <summary>
     /// When the game starts, display the high score.
@@ -87,40 +94,38 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public IEnumerator OnBombHit()
     {
-        Debug.Log("Bomb Hit Called");
         // Advertisement.Show();
-        Time.timeScale = 0.01f;                 // This line of code stops the game.
+        Time.timeScale = 0.01f;                 // This line of code slows down the game noticeably.
+        // Need to slow down the game and not set it to 0
+        // for the yield return to work
 
         // Set the score to the gameOverScoreText
         gameOverScoreText.text = "Score: " + score.ToString();
+
+        // Loop used for the yield return to work.
+        // Inside this loop, I show the game over panel after 1.3 seconds.
         while (true)
         {
+            // Wait for 0.013 seconds.
+            // This number was calculated by multiplying 0.01 by 1.3 seconds.
+            // The explosion takes 1.3 seconds to be heard.
+            // Since I wanted to show the game over panel when the explosion sound came in
+            // after the bomb-omb sound, I used this value to time it perfectly.
             yield return new WaitForSeconds(0.013f);
-            Debug.Log("Activate Panel");
+
             gameOverPanel.SetActive(true);     // Activate the Game Over Panel when the game ends
-            Time.timeScale = 0f;                 // This line of code stops the game.
-            break;
+            Time.timeScale = 0f;               // This line of code stops the game.
+            break;                             // Break from the while loop
         }
-        
     }
 
     /// <summary>
-    /// Calls the Show Game Over Panel method with a delay of 1.3 seconds. 
-    /// (In time for the bomb explosion sound)
+    /// Calls the OnHitBomb coroutine. 
     /// </summary>
-    public void InvokeGameOverPanel()
+    public void InvokeGameOver()
     {
+        // Execute OnBombHit coroutine.
         StartCoroutine(OnBombHit());
-        //Invoke("ShowGameOverPanel", 1.3f);
-    }
-
-    /// <summary>
-    /// This method shows the gameOver Panel.
-    /// </summary>
-    private void ShowGameOverPanel()
-    {
-        gameOverPanel.SetActive(true);     // Activate the Game Over Panel when the game ends
-        Debug.Log("Show GameOver Panel");
     }
 
     /// <summary>
