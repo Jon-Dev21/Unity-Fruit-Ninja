@@ -1342,7 +1342,7 @@ TrailRenderer:
         outWeight: 0
       - serializedVersion: 3
         time: 1
-        value: 0
+        value: 0.37374082
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -1423,6 +1423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d18bb5efb10b55b43b14c11cac0904d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minVelocity: 0.1
 --- !u!58 &1340329793
 CircleCollider2D:
   m_ObjectHideFlags: 0
