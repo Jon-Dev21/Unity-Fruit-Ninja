@@ -22,7 +22,13 @@ public class Bomb : MonoBehaviour
             return;
         }
 
-        // Execute the OnBombHit method.
-        FindObjectOfType<GameManager>().OnBombHit();
+        // Play the Bomb Explosion sound
+        FindObjectOfType<GameManager>().PlayBombExplosionSound();
+
+        // Execute the OnBombHit method. (Stop the game)
+        //FindObjectOfType<GameManager>().OnBombHit();
+
+        // Execute the InvokeOnBombHit method. (Show the game over panel)
+        FindObjectOfType<GameManager>().InvokeGameOverPanel();
     }
 }
